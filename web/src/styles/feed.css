@@ -113,5 +113,39 @@ body {
 
 .post-actions button:hover {
   background: #f0f2f5;
+}.timeline {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 16px;
 }
+
+.post-card {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+}
+
+.post-content {
+  margin: 12px 0;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.post-actions {
+  display: flex;
+  gap: 20px;
+  font-size: 14px;
+  color: #65676b;
+  cursor: pointer;
+}
+
 
