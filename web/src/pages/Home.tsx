@@ -11,4 +11,13 @@ export default function Home() {
       <Timeline key={refreshKey} />
     </div>
   );
+}import Timeline from '../components/Timeline';
+
+export default function Home() {
+  return (
+    <div>
+      <Timeline />
+    </div>
+  );
 }
+
