@@ -1,33 +1,30 @@
-import React, { useState } from 'react';
-import '../styles/feed.css';
+import { useState } from 'react';
+import { apiFetch } from '../api/client';
 
-export default function CreatePost() {
+export function CreatePost({ onNewPost }: { onNewPost: (p: any) => void }) {
   const [content, setContent] = useState('');
 
-  const submitPost = async () => {
+  async function submit() {
     if (!content.trim()) return;
 
-    await fetch('http://localhost:4000/posts', {
+    const post = await apiFetch('/posts', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: 'Bearer YOUR_JWT_TOKEN'
-      },
-      body: JSON.stringify({ content })
+      body: JSON.stringify({ content }),
     });
 
+    onNewPost(post);
     setContent('');
-  };
+  }
 
   return (
     <div className="create-post">
       <textarea
-        placeholder="What are you watching?"
         value={content}
-        maxLength={280}
         onChange={e => setContent(e.target.value)}
+        placeholder="What's happening?"
+        maxLength={280}
       />
-      <button onClick={submitPost}>Post</button>
+      <button onClick={submit}>Post</button>
     </div>
   );
 }
